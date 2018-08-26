@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Commute Safe</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+ <!-- vendor -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+ 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ 
+  
+  
+<!-- custom -->
+  <link rel="stylesheet" type="text/css" href="button.css">
+   <link rel="stylesheet" href="form.css">
+   
+    <!-- custom css -->
+    <style>
+      .header{
+        background-color: #31b89d;
+        width: 100%;
+        height: 55px;
+        letter-spacing: 1px;
+        color: white;
+        font-size: 32px;
+        font-weight: bold;
+        z-index: 1000;
+        position: sticky;
+        top: 0;
+      }
+
+      .controls {
+        margin-top: 10px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+
+
+
+@media screen and (max-width: 351px){
+   
+    #title-size{
+      font-size: 23px;
+      padding-top: 5px; 
+
+    }
+}
+
+@media screen and (max-width: 767px){
+   
+    #route-div1,#route-div2{
+      
+      text-align: center;
+
+    }
+}
+
+
+      div[id^="map"] {
+        height: 350px;
+      }
+      div[id^='right-panel'] {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+      div[id^='right-panel'] select, div[id^='right-panel'] input {
+        font-size: 15px;
+      }
+
+      div[id^='right-panel'] select {
+        width: 100%;
+      }
+
+      div[id^='right-panel'] i {
+        font-size: 12px;
+      }
+      div[id^='right-panel'] {
+        height: 100%;
+        float: right;
+        width: 390px;
+        overflow: auto;
+      }
+      div[id^="toggle-button"]{
+        background-color:#31b89d;
+        border:1px solid #f3f5f6; 
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin-left: 30px;
+        cursor: pointer;
+      }
+      div[id^="toggle-button"]:focus{
+        outline: none;
+      }
+
+      @media print {
+        div[id^="map"] {
+          height: 350px;
+          margin: 0;
+        }
+        div[id^='right-panel'] {
+          float: none;
+          width: auto;
+        }
+
+      </style>
+
+</head>
+
+<body>
+
+      <div class="container">
+
+     <section class="header">
+    <div style="text-align: center;padding-left:30px;padding-right:30px;" class="row">
+      <div style="float: left;width: 3%;"> <a href="home.html" style="text-decoration: none;color: #fff; "><i class="fas fa-arrow-left"></i></a></div>
+       
+       <div style="float: right;width: 93%;padding-top: 6px;"><h2 id="title-size" style="font-weight: bold;">Commute Safe</h2></div>
+       
+    </div>
+  </section>
+
+        <div class="dark-wrap">
+
+
+         
+          <div id="cd0"></div>
+          <div id="cd1"></div>
+          <div id="cd2"></div>
+          <div id="cd3"></div>
+          <div id="cd4"></div>
+          <div id="cd5"></div>
+          <div id="cd6"></div>
+          <div id="cd7"></div>
+          <div id="cd8"></div>
+          <div id="cd9"></div>
+          
+  
+
+          <!-- Footer -->
+  <section id="footer" style="padding-top: 15px;">
+    <div class="container">
+
+      <div style="width: 100%;text-align: center;margin-bottom: 25px;color: #fff;">
+        <h2>Our Team Members</h2>
+      </div>
+
+      <div class="row text-center text-xs-center text-sm-left text-md-left">
+        <div class="col-xs-12 col-sm-4 col-md-4 resp">
+          <h5>Jatin Sharma</h5>
+          <ul class="list-unstyled quick-links">
+            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>B.Tech(IT)</a></li>
+            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>MSIT(GGSIPU)</a></li>
+           
+            
+            
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 resp">
+          <h5>Ashutosh Senger</h5>
+          <ul class="list-unstyled quick-links">
+            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>B.Tech(CSE)</a></li>
+            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>MSIT(GGSIPU)</a></li>
+
+            
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 resp">
+          <h5>Gaurav Bhat</h5>
+          <ul class="list-unstyled quick-links">
+            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>B.Tech(IT)</a></li>
+            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>MSIT(GGSIPU)</a></li>
+
+            
+          </ul>
+        </div>
+      </div>
+     
+      <div class="row" style="padding-top: 30px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+         
+          <p class="h6">&copy; Copyright 2018.All right Reversed.<a class="text-green ml-2" href="https://www.msit.in/" target="_blank">Msit</a></p>
+        </div>
+        
+      </div>  
+    </div>
+  </section>
+  <!-- ./Footer -->
+
+</div>
+
+<script type="text/javascript">
+
+var map,infowindow1,pos,infoWindow;
+//to display multiple cards
+var resp=JSON.parse(localStorage.getItem("response"));
+
+
+
+r();
+function r(){
+
+  
+for (var i = resp.routes.length-1; i >=0 ; i--) {
+
+  document.getElementById('cd'+i).innerHTML=`<div  class=\"row cdr\"  style=\"margin:1%; \">
+            
+            <div class=\"col-md-12\">
+             <div class=\"card\">
+               <div class=\"card-body\">
+                <div class=\"row\">
+                  <div class=\"col-md-8 col-xs-12\" id=\"route-div1\">
+                   <h4 style=\"color:#31b89d;font-size:25px;\"  class=\"card-title\">Route No.`+(i+1)+`</h4>
+                   <p style=\"font-size:19px;\" class=\"card-text\">Distance :<span id=\"distance\">`+resp.routes[i].legs[0].distance.text+`</span>
+                   </p> 
+                    <p style=\"font-size:18px;\" class=\"card-text\">Duration :<span id=\"duration\">`+resp.routes[i].legs[0].duration.text+`</span>
+
+                   </p>
+                  <div id=\"tft`+i+`\"></div>
+
+                 </div>
+                 <div class=\"col-md-4 col-xs-12\" id=\"route-div2\">
+                  <p style=\"font-weight: bold;color:#31b89d;font-size:20px;\">No. of Hotspots : <span style=\"color: red;font-weight: bold;\">`+2*i+`</span></p>
+                  <button type=\"button\" id=\"toggle-button`+i+`\">
+                   <i class=\"fa fa-angle-down\" style=\"font-size:40px;color:#fff\"></i>
+                </button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+       
+     </div>
+            <div id="cardDetails`+i+`" class=\"row\" style=\"margin:1%; \" >
+            <div class=\"col-md-12\">
+             <div class=\"card\" >
+               <div class=\"card-body\" >
+               
+                  
+                <div  id=\"maps`+i+`\">
+                <div id=\"map`+i+`\" style=\"width: 100%;margin: 0px;\" ></div>
+       <div id=\"right-panel`+i+`\" style=\"width: 100%;height:350px;overflow: auto; \"></div>
+       
+           </div>
+           
+          
+
+             
+             </div>
+         </div>
+       </div>
+</div>`;
+    //checking for fares if any
+
+                   if(resp.routes[0].fare){
+                     var txt=`
+                    <p class=\"card-text\">Fare :<span id=\"fare\">`+resp.routes[i].fare.text+`</span>
+                   </p>`;
+                    
+                    $('#tft'+i).append(txt);
+                   }
+    
+
+
+ }
+ $(function() { 
+      var x='#toggle-button0';
+      var y='#maps0';
+    $(x).click(function(){  
+        $(y).toggle('slow');
+        
+
+    });
+    
+});
+ 
+ $(function() { 
+      var x='#toggle-button1';
+      var y='#maps1';
+    $(x).click(function(){  
+        $(y).toggle('slow');
+        
+
+    });
+    
+});
+ $(function() { 
+      var x='#toggle-button2';
+      var y='#maps2';
+    $(x).click(function(){  
+        $(y).toggle('slow');
+        
+
+    });
+    
+});
+ $(function() { 
+      var x='#toggle-button3';
+      var y='#maps3';
+    $(x).click(function(){  
+        $(y).toggle('slow');
+        
+
+    });
+    
+});
+ $(function() { 
+      var x='#toggle-button4';
+      var y='#maps4';
+    $(x).click(function(){  
+        $(y).toggle('slow');
+        
+
+    });
+    
+});
+ $(function() { 
+      var x='#toggle-button5';
+      var y='#maps5';
+    $(x).click(function(){  
+        $(y).toggle('slow');
+        
+
+    });
+    
+});
+  $(function() { 
+      var x='#toggle-button0';
+      var y='#cardDetails0';
+    $(x).click(function(){  
+        $(y).toggle('slow');
+        
+
+    });
+    
+});
+$(function() { 
+      var x='#toggle-button1';
+      var y='#cardDetails1';
+    $(x).click(function(){  
+        $(y).toggle('slow');
+        
+
+    });
+    
+});
+$(function() { 
+      var x='#toggle-button2';
+      var y='#cardDetails2';
+    $(x).click(function(){  
+        $(y).toggle('slow');
+        
+
+    });
+    
+});
+$(function() { 
+      var x='#toggle-button3';
+      var y='#cardDetails3';
+    $(x).click(function(){  
+        $(y).toggle('slow');
+        
+
+    });
+    
+});
+$(function() { 
+      var x='#toggle-button4';
+      var y='#cardDetails4';
+    $(x).click(function(){  
+        $(y).toggle('slow');
+        
+
+    });
+    
+});
+$(function() { 
+      var x='#toggle-button5';
+      var y='#cardDetails5';
+    $(x).click(function(){  
+        $(y).toggle('slow');
+        
+
+    });
+    
+});
+
+  
+}
+ 
+     
+</script>
+
+
+  </div>
+
+
+
+
+
+<script>
+      var originAutocomplete, destinationAutocomplete ; 
+  function initMapForm() {
+
+
+
+//current location
+var cl1 =JSON.parse(localStorage.getItem("position"));
+var lat =JSON.parse(localStorage.getItem("lat"));
+var lng =JSON.parse(localStorage.getItem("lng"));
+var maps=new Array(resp.routes.length);
+             
+
+             //maps
+
+
+for (var i = resp.routes.length-1; i >=0 ; i--) {
+            var mapid="map"+i;
+
+             maps[i] = new google.maps.Map(document.getElementById(mapid), {
+              mapTypeControl: true,
+              center:{lat:lat,lng:lng},
+              zoom:13
+            });
+
+            //fusion table layer
+    layer = new google.maps.FusionTablesLayer({
+      map: maps[i],
+      
+      heatmap: { enabled: false },
+      query: {
+        select: "col2",
+        from: "1a6K_SdjF05xjXiFF2mcBDGUTXJF56q641uIrVYJj",
+        where: ""
+      },
+      options: {
+        zoom:24,
+        styleId: 2,
+        templateId: 2
+      }
+    });
+
+ 
+          //setting direction on map and panel
+          this.directionsService = new google.maps.DirectionsService;
+          this.directionsDisplay = new google.maps.DirectionsRenderer;
+          //setting zoom o direction as before
+          this.directionsDisplay.preserveViewport=true;
+          this.directionsDisplay.setMap(maps[i]);
+          this.directionsDisplay.setPanel(document.getElementById('right-panel'+i));
+
+
+
+            var me=this;
+            var r=new Array(10);
+          //showing respective direction on respective panel and map
+            r[i]={geocoded_waypoints:resp.geocoded_waypoints,
+              routes:[resp.routes[i]],
+              status:resp.status,
+              request:resp.request,
+              _proto_:resp._proto_};
+            
+            me.directionsDisplay.setDirections(r[i]);
+            }
+            
+}   
+   
+
+
+ </script>
+ <!--map api-->
+   <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCWG-y8hQMcEMKIqqZgvNeh0ZMsmRuf8zc&libraries=places&language=en&callback=initMapForm"
+    async defer></script>
+
+    
+  </body>
+  </html>
